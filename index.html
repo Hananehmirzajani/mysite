@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Happy Birthday!</h1>
+  </header>
+
+  <nav>
+    <a href="sara.html">Sara</a>
+    <a href="paris.html">Parisa</a>
+  </nav>
+
+  <section>
+    <p class="message">Happy birthday my dearest friends, wish you all the best 🤍<br>- I hope you like this present 🎁</p>
+
+    <!-- Birthday Image -->
+    <img src="birth.jpg" alt="Birthday" class="main-image">
+
+    <!-- Music -->
+    <div class="music-control">
+      <button id="musicBtn" class="pulse">Play Music</button>
+      <audio id="bgMusic" src="music.mp3" preload="auto"></audio>
+    </div>
+  </section>
+
+  <script>
+    const music = document.getElementById("bgMusic");
+    const musicBtn = document.getElementById("musicBtn");
+
+    musicBtn.addEventListener("click", () => {
+      if (music.paused) {
+        music.play();
+        musicBtn.textContent = "Pause Music";
+      } else {
+        music.pause();
+        musicBtn.textContent = "Play Music";
+      }
+    });
+
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        music.play().catch(() => {
+          musicBtn.classList.add("pulse");
+        });
+      }, 500);
+    });
+  </script>
+</body>
+</html>
